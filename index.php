@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'vista/head.php'; 
+<?php 
+include 'src/funciones/sesion.php';
+include 'vista/head.php'; 
 include 'src/funciones/funciones.php';
-include 'src/funciones/conexion.php'?>
+include 'src/funciones/conexion.php';
+include 'vista/header.php'?>
+
 
 <body>
-
-<div class="barra">
-    <h1>UpTask - Administración de Proyectos</h1>
-    <a href="#">Cerrar Sesión</a>
-</div>
 
 <div class="contenedor">
     <aside class="contenedor-proyectos">

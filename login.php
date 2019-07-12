@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'vista/head.php'; 
+<?php 
+include 'vista/head.php'; 
 include 'src/funciones/funciones.php';
-include 'src/funciones/conexion.php'?>
+include 'src/funciones/conexion.php';
+
+session_start();
+/*echo "<pre>";
+var_dump($_SESSION);
+echo "<hr>";
+var_dump($_GET);
+echo "</pre>";*/
+
+if(isset($_GET['cerrar_sesion'])){
+   // echo "Si, presionaste en cerrar";
+   $_SESSION=array(); //esto se encarga de cerrar la sesion
+}/*else {
+    echo "no";
+}*/
+?>
+
 
 <body class="login">
     <div class="contenedor-formulario">

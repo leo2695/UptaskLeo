@@ -73,6 +73,10 @@ if ($accion === 'login') { //crear administradores
         if ($nombre_usuario) {
             //el usuario existe, verificar password
             if (password_verify($password, $pass_usuario)) {
+                //Iniciar Sesion
+                session_start();
+                $_SESSION['nombre']=$usuario;
+                
                 //Login Correcto
                 $respuesta = array(
                     'respuesta' => 'correcto',
