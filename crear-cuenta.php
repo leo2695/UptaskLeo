@@ -23,7 +23,7 @@ include 'src/funciones/conexion.php'?>
                 <input type="submit" class="boton" value="Crear cuenta">
             </div>
             <div class="campo">
-                <a href="login.html">Inicia Sesión Aquí</a>
+                <a href="login.php">Inicia Sesión Aquí</a>
             </div>
         </form>
     </div>

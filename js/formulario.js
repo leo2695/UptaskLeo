@@ -38,18 +38,50 @@ function validarRegistro(e) { //le pasamos el evento e
         //console.log(datos.get('usuario'));
 
         //llamado AJAX
-        var xhr=new XMLHttpRequest();
-       
+        var xhr = new XMLHttpRequest();
+
         //Abrir conexion
-        xhr.open('POST','src/modelo/modelo-admin.php', true);//como lo enviamos, a donde lo enviamos, true=llamado asincrono
+        xhr.open('POST', 'src/modelo/modelo-admin.php', true); //como lo enviamos, a donde lo enviamos, true=llamado asincrono
 
         //Retorna Datos
-        xhr.onload=function(){
-            if (this.status===200){
-                console.log(JSON.parse(xhr.responseText)); //Json.parse toma el string y lo convierte en un objeto JS
+        xhr.onload = function () {
+
+            if (this.status === 200) {
+                //  console.log(JSON.parse(xhr.responseText)); //Json.parse toma el string y lo convierte en un objeto JS
+                var respuesta = JSON.parse(xhr.responseText);
+
+                console.log(respuesta);
+                //si la respuesta es correcta
+                if (respuesta.respuesta === 'correcto') {
+                    //si es un nuevo usuario
+                    if (respuesta.tipo === 'crear') {
+                        swal({
+                            title: 'Usuario Creado',
+                            text: 'El usuario se creó correctamente',
+                            type: 'success'
+                        });
+                    }else if (respuesta.tipo==='login') {
+                        swal({
+                            title:'Login Correcto',
+                            text: 'Iniciando Sesión...',
+                            type: 'success' 
+                        }).then(resultado=>{//arrow function
+                            //console.log(resultado);
+                            if(resultado.value){
+                                window.location.href='index.php';
+                            }
+                        })
+                    }
+                } else{
+                    swal({
+                        title: 'Error',
+                        text: 'Ha ocurrido un problema',
+                        type: 'error'
+                    });
+                }
             }
         }
-        
+
         //Enviar la peticion
         xhr.send(datos);
     }
