@@ -1,7 +1,6 @@
 <?php
 
 //die(json_encode($_POST)); //para asegurarme lo que esta creando
-
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 $accion = $_POST['accion'];
@@ -16,6 +15,7 @@ if ($accion === 'crear') { //crear administradores
 
     //importar conexion
     include '../funciones/conexion.php';
+
     try { //Realizar consulta a BD
         //prepare statement
         $statement = $conn->prepare("INSERT INTO usuario (usuario,password) VALUES (?,?)");
@@ -42,10 +42,14 @@ if ($accion === 'crear') { //crear administradores
         $conn->close();
     } catch (Exception $e) { //En caso de error tomar la excepcion
         $respuesta = array(
-            'pass' => $e->getMessage()
+            'error' => $e->getMessage()
         );
     }
     echo json_encode($respuesta);
+}
+
+if($accion==='actualizar'){
+    echo json_encode($_POST);
 }
 
 /*$arreglo=array(
@@ -111,7 +115,7 @@ if ($accion === 'login') { //crear administradores
         $conn->close();
     } catch (Exception $e) { //En caso de error tomar la excepcion
         $respuesta = array(
-            'pass' => $e->getMessage()
+            'error' => $e->getMessage()
         );
     }
     echo json_encode($respuesta);

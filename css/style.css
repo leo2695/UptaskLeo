@@ -225,3 +225,20 @@ body.index {
     color: white;
     font-size: 1.2rem;
 }
+
+/*Barra avance del proyecto*/
+.barra-avance{
+height: 30px;
+width: 90%;
+margin: 0 auto;
+max-width: 800px;
+background-color: #f2f2f2; 
+}
+
+.porcentaje{
+   width: 0%;
+   height: 100%;
+   background-color: #00B762; 
+   background-size: 1rem 1 rem;
+   transition: width .7s ease-in-out;
+}
