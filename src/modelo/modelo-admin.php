@@ -48,10 +48,6 @@ if ($accion === 'crear') { //crear administradores
     echo json_encode($respuesta);
 }
 
-if($accion==='actualizar'){
-    echo json_encode($_POST);
-}
-
 /*$arreglo=array(
 'respuesta'=>'Desde Modelo'
 );*/
