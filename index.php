@@ -41,7 +41,7 @@ if (isset($_GET['id_proyecto'])) {
                 <form action="#" class="agregar-tarea">
                     <div class="campo">
                         <label for="tarea">Tarea:</label>
-                        <input type="text" placeholder="Nombre Tarea" class="nombre-tarea">
+                        <input type="text" placeholder="Nombre Tarea" class="nombre-tarea" autofocus="autofocus">
                     </div>
                     <div class="campo enviar">
                         <input type="hidden" value="<?php echo $id_proyecto ?>" id="id_proyecto">

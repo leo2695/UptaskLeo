@@ -27,7 +27,7 @@ function nuevoProyecto(e) {
 
     //crea input para el nombre del proyecto
     var nuevoProyecto = document.createElement('li');
-    nuevoProyecto.innerHTML = '<input type="text" id="nuevo-proyecto">';
+    nuevoProyecto.innerHTML = '<input type="text" id="nuevo-proyecto" focus="autofocus">';
     listaProyectos.appendChild(nuevoProyecto);
 
 
